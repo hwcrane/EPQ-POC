@@ -1,0 +1,24 @@
+#barContainer {
+    display: flex;
+    align-items: flex-end;
+    width: 75vw;
+    height: 70vh;
+    justify-content: center;
+    margin: auto;
+    background-color: grey;
+    padding: 10px;
+}
+
+.finished {
+    background-color: green;
+}
+
+.bar {
+    background: rgb(219, 219, 219);
+
+    margin: 0.15%;
+}
+
+body {
+    background-color: rgb(94, 94, 94);
+}
