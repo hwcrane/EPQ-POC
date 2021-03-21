@@ -26,6 +26,7 @@ function makeBars() {
         bars[i].style.height = `${(barNums[i] / arrLen) * 100}%`;
         bars[i].style.width = `${100 / arrLen}%`;
         bars[i].style.margin = `0 ${10 / arrLen}%`;
+        bars[i].setAttribute("id", "unsorted");
         document.getElementById("barContainer").appendChild(bars[i]);
     }
 }

@@ -1,9 +1,9 @@
 async function bubble() {
     for (i = 0; i < barNums.length; i++) {
         for (j = 0; j < barNums.length - i; j++) {
-            bars[j].style.backgroundColor = "red";
+            bars[j].setAttribute("id", "current");
             if (barNums[j] > barNums[j + 1]) {
-                bars[j + 1].style.backgroundColor = "red";
+                bars[j + 1].setAttribute("id", "current");
                 bars[j].style.height = `${
                     (barNums[j + 1] / barNums.length) * 100
                 }%`;
@@ -15,10 +15,10 @@ async function bubble() {
                 barNums[j + 1] = barNums[j];
                 barNums[j] = temp;
             }
-            await new Promise((r) => setTimeout(r, 2));
+            await new Promise((r) => setTimeout(r, 200));
 
-            bars[j].style.backgroundColor = "white";
+            bars[j].setAttribute("id", "unsorted");
         }
-        bars[bars.length - i - 1].style.backgroundColor = "green";
+        bars[bars.length - i - 1].setAttribute("id", "sorted");
     }
 }

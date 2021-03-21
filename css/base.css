@@ -9,13 +9,19 @@
     padding: 10px;
 }
 
-.finished {
+#sorted {
     background-color: green;
 }
 
-.bar {
-    background: rgb(219, 219, 219);
+#unsorted {
+    background-color: white;
+}
 
+#current {
+    background-color: red;
+}
+
+.bar {
     margin: 0.15%;
 }
 
