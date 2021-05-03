@@ -167,8 +167,8 @@
 
             <div class="splitWrapper">
                 <div class="div-card buttons">
-                    <ul>
-                        <li>
+                    <ul class="buttonList">
+                        <li class="buttonBit">
                             Length
                             <input
                                 type="range"
@@ -181,7 +181,7 @@
                             />
                         </li>
 
-                        <li>
+                        <li class="buttonBit">
                             Speed
                             <input
                                 type="range"
@@ -193,7 +193,7 @@
                                 oninput="setSpeed()"
                             />
                         </li>
-                        <li>
+                        <li class="buttonBit">
                             <select
                                 name="algorithm"
                                 id="dropdown"
@@ -211,7 +211,7 @@
                             </select>
                         </li>
 
-                        <li>
+                        <li class="buttonBit">
                             <input
                                 class="button sort"
                                 type="button"
@@ -221,7 +221,7 @@
                             />
                         </li>
 
-                        <li>
+                        <li class="buttonBit">
                             <input
                                 class="button random"
                                 type="button"
@@ -236,14 +236,10 @@
                     <div>
                         Time:
                         <b id="timer"></b> secs
-                        <br />
-                        Comparisons:
-                        <b id="comparison"></b>
-
-                        <br />
-                        Swaps:
-                        <b id="swap"></b>
                     </div>
+                    <div>Comparisons: <b id="comparison"></b></div>
+
+                    <div>Swaps: <b id="swap"></b></div>
                 </div>
             </div>
 
