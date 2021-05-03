@@ -51,10 +51,6 @@ input:disabled {
     }
 }
 @media only screen and (max-width: 600px) {
-    .arrayBar {
-        margin-left: 0px;
-        margin-right: 0px;
-    }
     .arrayBox {
         height: 15rem;
     }
