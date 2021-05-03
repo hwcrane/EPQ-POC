@@ -1,17 +1,20 @@
 async function bubblesort() {
     for (i = 0; i < arrLen; i++) {
         for (ii = 0; ii < arrLen - i - 1; ii++) {
-            setBarColour(ii, "red");
-            setBarColour(ii + 1, "red");
+            setBarColour(ii, "sorting");
+            setBarColour(ii + 1, "sorting");
+            updateComparisons(1);
             await pause();
+
             if (arrNums[ii] > arrNums[ii + 1]) {
+                updateSwaps(1);
                 swap(ii, ii + 1);
                 await pause();
             }
 
-            setBarColour(ii, "rgb(0, 140, 255)");
-            setBarColour(ii + 1, "rgb(0, 140, 255)");
+            setBarColour(ii, "unsorted");
+            setBarColour(ii + 1, "unsorted");
         }
-        setBarColour(arrLen - i - 1, "green");
+        setBarColour(arrLen - i - 1, "sorted");
     }
 }

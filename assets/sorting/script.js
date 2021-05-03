@@ -41,7 +41,8 @@ function setBarHeight(barNum, height) {
 
 function setBarColour(barNum, colour) {
     bar = document.getElementById(`B${barNum}`);
-    bar.style.backgroundColor = `${colour}`;
+
+    bar.style.backgroundColor = `var(--${colour})`;
 }
 
 async function sort() {
@@ -49,20 +50,30 @@ async function sort() {
     document.getElementById("dropdown").disabled = true;
     document.getElementById("start").disabled = true;
     document.getElementById("randomize").disabled = true;
+    timerRunning = true;
+
+    updateComparisons(0);
+    updateSwaps(0);
+
     switch (document.getElementById("dropdown").value) {
         case "":
             window.alert("Please select the algorithm");
             break;
+
         case "Bubble":
+            stopwatch();
             await bubblesort();
             break;
         case "insertion":
+            stopwatch();
             await insertionSort();
             break;
         case "quick":
+            stopwatch();
             await quicksort(0, arrLen);
             break;
         case "bogo":
+            stopwatch();
             await bogosort();
             break;
     }
@@ -70,6 +81,7 @@ async function sort() {
     document.getElementById("dropdown").disabled = false;
     document.getElementById("start").disabled = false;
     document.getElementById("randomize").disabled = false;
+    timerRunning = false;
 }
 
 function swap(n1, n2) {
@@ -80,7 +92,43 @@ function swap(n1, n2) {
     arrNums[n2] = temp;
 }
 
+function updateComparisons(n) {
+    if (n == 0) {
+        comparisons = 0;
+    } else {
+        comparisons++;
+    }
+    document.getElementById("comparison").innerHTML = comparisons;
+}
+
+function updateSwaps(n) {
+    if (n == 0) {
+        swaps = 0;
+    } else {
+        swaps++;
+    }
+    document.getElementById("swap").innerHTML = comparisons;
+}
+async function stopwatch() {
+    timerRunning = true;
+    timer = 0;
+    var x = setInterval(function () {
+        timer += 0.01;
+        document.getElementById("timer").innerHTML = timer.toFixed(2);
+        if (!timerRunning) {
+            clearInterval(x);
+        }
+    }, 10);
+    return x;
+}
 var speed = 2;
+var comparisons = 0;
+var swaps = 0;
+var timer = 0.0;
+var timerRunning = false;
 var arrLen;
 var arrNums;
 makeBars();
+updateComparisons(0);
+updateSwaps(0);
+document.getElementById("timer").innerHTML = timer.toFixed(2);

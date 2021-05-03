@@ -1,27 +1,30 @@
 async function quicksort(first, last) {
     if (last - first <= 1) {
-        setBarColour(first, "green");
+        updateComparisons(1);
+        setBarColour(first, "sorted");
         return;
     }
     pivot = first;
-    setBarColour(pivot, "purple");
+    setBarColour(pivot, "pivot");
     index = pivot + 1;
 
     for (var i = index; i < last; i++) {
-        setBarColour(i, "red");
+        setBarColour(i, "sorting");
+        updateComparisons(1);
         if (arrNums[i] < arrNums[pivot]) {
+            updateSwaps(1);
             swap(i, index);
             await pause();
 
             index++;
         }
-        setBarColour(i, "rgb(0, 140, 255)");
+        setBarColour(i, "unsorted");
     }
     swap(pivot, index - 1);
-    setBarColour(pivot, "rgb(0, 140, 255)");
-    setBarColour(index - 1, "purple");
+    setBarColour(pivot, "unsorted");
+    setBarColour(index - 1, "pivot");
     await pause();
-    setBarColour(index - 1, "green");
+    setBarColour(index - 1, "sorted");
     await quicksort(first, index - 1);
     await quicksort(index, last);
 }

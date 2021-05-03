@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="assets/style.css" />
+        <link rel="stylesheet" href="assets/sorting/sorting.css" />
+        <title>Sorting Visuliser</title>
+    </head>
+    <body>
+        <nav class="navbar">
+            <ul class="navbar-nav">
+                <li class="logo">
+                    <a href="index.html" class="nav-link">
+                        <span class="link-text">ALGORITHMS VISUALIZER</span>
+                        <svg
+                            aria-hidden="true"
+                            focusable="false"
+                            data-prefix="fad"
+                            data-icon="eye"
+                            role="img"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512"
+                            class="svg-inline--fa fa-eye fa-w-18 fa-9x"
+                        >
+                            <g class="fa-group">
+                                <path
+                                    fill="currentColor"
+                                    d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288.14 400H288a143.93 143.93 0 1 1 .14 0z"
+                                    class="fa-secondary"
+                                ></path>
+                                <path
+                                    fill="currentColor"
+                                    d="M380.66 280.87a95.78 95.78 0 1 1-184.87-50.18 47.85 47.85 0 0 0 66.9-66.9 95.3 95.3 0 0 1 118 117.08z"
+                                    class="fa-primary"
+                                ></path>
+                            </g>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="sorting.html" class="nav-link">
+                        <svg
+                            aria-hidden="true"
+                            focusable="false"
+                            data-prefix="fad"
+                            data-icon="waveform"
+                            role="img"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 512"
+                            class="svg-inline--fa fa-waveform fa-w-20 fa-9x"
+                        >
+                            <g class="fa-group">
+                                <path
+                                    fill="currentColor"
+                                    d="M140 192h-24a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16v-96a16 16 0 0 0-16-16zM524 64h-24a16 16 0 0 0-16 16v352a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zM332 0h-24a16 16 0 0 0-16 16v480a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16z"
+                                    class="fa-secondary"
+                                ></path>
+                                <path
+                                    fill="currentColor"
+                                    d="M44 224H20a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM236 96h-24a16 16 0 0 0-16 16v288a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16V112a16 16 0 0 0-16-16zm384 128h-24a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm-192-96h-24a16 16 0 0 0-16 16v224a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16V144a16 16 0 0 0-16-16z"
+                                    class="fa-primary"
+                                ></path>
+                            </g>
+                        </svg>
+                        <span class="link-text">Sorting</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="searching.html" class="nav-link">
+                        <svg
+                            aria-hidden="true"
+                            focusable="false"
+                            data-prefix="fad"
+                            data-icon="search"
+                            role="img"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                            class="svg-inline--fa fa-search fa-w-16 fa-9x"
+                        >
+                            <g class="fa-group">
+                                <path
+                                    fill="currentColor"
+                                    d="M208 80a128 128 0 1 1-90.51 37.49A127.15 127.15 0 0 1 208 80m0-80C93.12 0 0 93.12 0 208s93.12 208 208 208 208-93.12 208-208S322.88 0 208 0z"
+                                    class="fa-secondary"
+                                ></path>
+                                <path
+                                    fill="currentColor"
+                                    d="M504.9 476.7L476.6 505a23.9 23.9 0 0 1-33.9 0L343 405.3a24 24 0 0 1-7-17V372l36-36h16.3a24 24 0 0 1 17 7l99.7 99.7a24.11 24.11 0 0 1-.1 34z"
+                                    class="fa-primary"
+                                ></path>
+                            </g>
+                        </svg>
+                        <span class="link-text">Searching</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="binPacking.html" class="nav-link">
+                        <svg
+                            aria-hidden="true"
+                            focusable="false"
+                            data-prefix="fad"
+                            data-icon="box-open"
+                            role="img"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 512"
+                            class="svg-inline--fa fa-box-open fa-w-20 fa-9x"
+                        >
+                            <g class="fa-group">
+                                <path
+                                    fill="currentColor"
+                                    d="M439 254.14L576 215v178a32.07 32.07 0 0 1-24.2 31l-216.4 54.1a65 65 0 0 1-31 0L88.24 424A31.9 31.9 0 0 1 64 393V215l137 39.2a46 46 0 0 0 13.3 1.9 48.64 48.64 0 0 0 41.5-23.5L320 126l64.3 106.6a48.47 48.47 0 0 0 41.4 23.4 46 46 0 0 0 13.3-1.86z"
+                                    class="fa-secondary"
+                                ></path>
+                                <path
+                                    fill="currentColor"
+                                    d="M638.34 143.84L586.84 41a16.33 16.33 0 0 0-16.7-8.9L320 64l91.7 152.1a16.44 16.44 0 0 0 18.5 7.3l197.9-56.5a16.47 16.47 0 0 0 10.24-23.06zM53.24 41L1.74 143.84a16.3 16.3 0 0 0 10.1 23l197.9 56.5a16.44 16.44 0 0 0 18.5-7.3L320 64 69.84 32.14A16.34 16.34 0 0 0 53.24 41z"
+                                    class="fa-primary"
+                                ></path>
+                            </g>
+                        </svg>
+                        <span class="link-text">Bin Packing</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="sorting.html" class="nav-link">
+                        <svg
+                            aria-hidden="true"
+                            focusable="false"
+                            data-prefix="fad"
+                            data-icon="route"
+                            role="img"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                            class="svg-inline--fa fa-route fa-w-16 fa-9x"
+                        >
+                            <g class="fa-group">
+                                <path
+                                    fill="currentColor"
+                                    d="M512 416a96.15 96.15 0 0 1-96 96H138.2a690.4 690.4 0 0 0 47.3-64H416a32 32 0 0 0 0-64h-96a96 96 0 0 1 0-192h45.24A799.82 799.82 0 0 0 416 256h-96a32 32 0 0 0 0 64h96a96.15 96.15 0 0 1 96 96z"
+                                    class="fa-secondary"
+                                ></path>
+                                <path
+                                    fill="currentColor"
+                                    d="M96 256a96 96 0 0 0-96 96c0 53 96 160 96 160s96-107 96-160a96 96 0 0 0-96-96zm0 128a32 32 0 1 1 32-32 32 32 0 0 1-32 32zM416 0a96 96 0 0 0-96 96c0 53 96 160 96 160s96-107 96-160a96 96 0 0 0-96-96zm0 128a32 32 0 1 1 32-32 32 32 0 0 1-32 32z"
+                                    class="fa-primary"
+                                ></path>
+                            </g>
+                        </svg>
+                        <span class="link-text">Path Finding</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <div class="div-card heading">Sorting Visuliser</div>
+
+            <div class="arrayBox div-card" id="arrayBox">
+                <div class="arrayBar"></div>
+            </div>
+
+            <div class="splitWrapper">
+                <div class="div-card buttons">
+                    <ul>
+                        <li>
+                            Length
+                            <input
+                                type="range"
+                                name="size"
+                                id="sizeBar"
+                                min="4"
+                                max="100"
+                                value="25"
+                                oninput="makeBars()"
+                            />
+                        </li>
+
+                        <li>
+                            Speed
+                            <input
+                                type="range"
+                                name="speed"
+                                id="speedBar"
+                                min="0"
+                                max="4"
+                                value="2"
+                                oninput="setSpeed()"
+                            />
+                        </li>
+                        <li>
+                            <select
+                                name="algorithm"
+                                id="dropdown"
+                                class="select"
+                            >
+                                <option value="">
+                                    Please Select algorithm
+                                </option>
+                                <option value="Bubble">Bubble Sort</option>
+                                <option value="insertion">
+                                    Insertion Sort
+                                </option>
+                                <option value="quick">Quicksort</option>
+                                <option value="bogo">Bogosort</option>
+                            </select>
+                        </li>
+
+                        <li>
+                            <input
+                                class="button sort"
+                                type="button"
+                                id="start"
+                                value="Sort"
+                                onclick="sort()"
+                            />
+                        </li>
+
+                        <li>
+                            <input
+                                class="button random"
+                                type="button"
+                                id="randomize"
+                                value="Randomize"
+                                onclick="makeBars()"
+                            />
+                        </li>
+                    </ul>
+                </div>
+                <div class="div-card info">
+                    <div>
+                        Time:
+                        <b id="timer"></b> secs
+                        <br />
+                        Comparisons:
+                        <b id="comparison"></b>
+
+                        <br />
+                        Swaps:
+                        <b id="swap"></b>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-card">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Officiis adipisci illum excepturi blanditiis expedita
+                    tempore animi, ipsam a libero nisi laudantium nemo ullam
+                    provident vero vitae recusandae aliquam tenetur? Deserunt
+                    quis est alias molestiae blanditiis, at nemo? Inventore
+                    totam ea maxime iste magnam laboriosam atque beatae neque
+                    maiores ratione iure consequuntur odit voluptates,
+                    repellendus nostrum, aperiam facere, animi voluptatem nam
+                    explicabo earum debitis possimus veritatis! Temporibus hic
+                    voluptate culpa perspiciatis ipsam! Eius sunt id nobis? Eius
+                    in eveniet veritatis iure perspiciatis voluptatum est
+                    recusandae omnis ducimus. Itaque modi commodi dicta ea rem
+                    qui veritatis, soluta illo tempore officia fuga natus sequi
+                    debitis adipisci aliquid est possimus. Adipisci nisi ratione
+                    nesciunt sint, unde cupiditate ipsam provident cum placeat
+                    ea, accusamus ex libero molestiae laboriosam numquam odio
+                    necessitatibus dolorum maiores quaerat dicta fugit a
+                    eligendi quod. Labore hic vitae aliquid quos sint vel sit
+                    obcaecati perspiciatis, porro beatae similique voluptatem
+                    repudiandae? Corporis natus, voluptatibus laboriosam
+                    praesentium rem officia culpa ipsam ipsa dolores alias nemo
+                    quae animi suscipit delectus modi eaque necessitatibus
+                    nostrum quasi soluta? Eos minima nesciunt, reprehenderit
+                    quam ut dolore consequuntur assumenda deserunt sit, aperiam
+                    praesentium doloribus placeat itaque alias laborum modi
+                    ipsam beatae molestiae id quos. Minus deleniti non voluptas
+                    temporibus? Sequi, blanditiis perferendis dolorem amet quae
+                    necessitatibus. Perspiciatis inventore aut dolorem
+                    necessitatibus ullam deleniti repellat eum nobis harum esse
+                    vitae veritatis ipsum molestiae, veniam possimus error
+                    reprehenderit odio eligendi sit, quam illum debitis optio
+                    eveniet. Officia ad suscipit beatae distinctio, quae
+                    accusamus at. At ipsum fugiat aut sunt harum aspernatur illo
+                    magnam sed officia asperiores vel architecto dignissimos
+                    impedit cupiditate neque rerum inventore, totam quidem nobis
+                    incidunt distinctio? Similique et aliquam nam! Eveniet
+                    voluptatum porro quas molestiae, velit quod voluptate illo
+                    dignissimos facilis vel culpa, placeat ex alias veniam
+                    doloribus nulla sapiente ab nam ea dolor, laborum ullam
+                    totam atque. Voluptas qui adipisci nostrum quibusdam vero
+                    nemo corrupti, sed nihil recusandae porro voluptatum at
+                    rerum! Totam odit temporibus perspiciatis inventore soluta,
+                    aspernatur distinctio enim nemo aliquam dolores. Alias
+                    impedit quo ad adipisci non fugit quas aliquam, tenetur
+                    pariatur natus ea explicabo eius soluta animi ullam beatae
+                    ut libero quasi quaerat eveniet? Mollitia est rem similique
+                    impedit, tempora accusamus unde, fugiat ut perspiciatis,
+                    expedita neque blanditiis. Ea cupiditate iure, vel voluptate
+                    laboriosam fugiat distinctio corrupti aliquam iusto, ducimus
+                    dolorem inventore quam et nisi ipsum ad rerum architecto
+                    magnam praesentium fuga eos, doloremque totam nihil?
+                    Laboriosam magnam possimus ullam rem incidunt ad,
+                    praesentium hic repellat voluptates nemo minima animi neque.
+                    Voluptates fugit quidem atque ratione quos, harum aut nemo
+                    esse quas aliquam commodi sed temporibus necessitatibus
+                    assumenda deserunt, numquam soluta illum sequi, laboriosam
+                    et pariatur. Sit dolor inventore rem veritatis alias nihil
+                    adipisci, tempore provident quod qui cupiditate eius
+                    molestias eveniet, praesentium blanditiis repudiandae illo
+                    ipsa accusamus! Voluptas vitae error a hic facilis
+                    voluptatum tempora dolore impedit aperiam repellendus sequi
+                    suscipit dolores, assumenda ratione amet provident ea,
+                    commodi veritatis earum id maxime consequuntur. Debitis
+                    nobis, distinctio voluptates recusandae repudiandae nulla
+                    non quo velit animi voluptas tenetur deleniti, expedita
+                    dolore soluta. Doloribus, optio accusamus officiis nemo
+                    beatae facere modi eveniet provident? Perferendis maxime id
+                    at nemo voluptas cumque eaque, enim accusamus harum
+                    reiciendis! Error maxime ea a autem consequatur veniam,
+                    repellendus nihil voluptatum est qui? Illum libero ad
+                    deserunt iure inventore eaque sequi. Id natus dolorem,
+                    voluptates dolores expedita molestias dicta sit beatae
+                    aperiam modi quidem vitae dolor? Provident, corporis quasi.
+                    Nesciunt nam laborum repellat molestiae repellendus
+                    molestias. Doloribus tempora facilis iusto aliquam enim
+                    maiores dolorem fugit placeat beatae eius, similique
+                    dignissimos accusamus quaerat, itaque asperiores optio!
+                    Velit odio qui nostrum eligendi distinctio architecto, est
+                    natus voluptate excepturi quo vel dolorem temporibus ipsa
+                    quibusdam in odit aperiam eius quam sequi voluptatum?
+                    Maiores sint beatae necessitatibus, accusamus deleniti
+                    numquam quidem, inventore optio aspernatur atque blanditiis,
+                    possimus in! Voluptas architecto molestiae sapiente adipisci
+                    autem, sunt rerum pariatur maxime atque perspiciatis,
+                    tenetur ducimus numquam nam vitae dolorum corporis, minus
+                    praesentium ipsum asperiores reprehenderit cupiditate at
+                    quia blanditiis. Aut ducimus ipsum amet qui, quibusdam
+                    dicta, voluptatem itaque optio quisquam dolores maiores
+                    voluptatibus quia inventore consectetur, facilis laboriosam
+                    facere nemo asperiores placeat! Porro facilis nam ipsam
+                    aspernatur architecto cumque culpa dolorem commodi ut dicta
+                    ipsum ullam exercitationem doloremque molestias ducimus,
+                    illum, obcaecati, laudantium reprehenderit inventore
+                    explicabo cupiditate aut suscipit. Praesentium, debitis quo
+                    eaque facilis commodi architecto consequatur temporibus quis
+                    incidunt! Mollitia dolorum illum numquam tempore a incidunt
+                    sint non fugit eaque ipsam placeat temporibus totam
+                    provident iusto facere ex, laudantium tenetur fugiat
+                    ducimus, error laborum obcaecati autem consectetur?
+                    Provident libero totam quod esse ipsa ea maxime, mollitia
+                    reiciendis vero, nisi, ducimus quidem explicabo. Nobis
+                    pariatur explicabo, tempora vero dolorem quibusdam corporis
+                    sequi? Saepe, perferendis? Eos eius optio natus porro enim
+                    ipsum quaerat rem animi accusantium modi repudiandae dolores
+                    sit unde dolor voluptas commodi aperiam, eum id dolorem nemo
+                    totam adipisci odio? Eveniet quam rerum temporibus animi
+                    minus necessitatibus, quia ex accusamus id dolores odit,
+                    saepe est. Consectetur, assumenda amet itaque eveniet nulla
+                    dicta voluptatum earum hic ut, doloribus necessitatibus
+                    maiores officiis illo? Voluptatum totam placeat accusantium,
+                    corrupti quisquam sint nisi nobis eum porro quas minus
+                    nostrum perspiciatis quos minima ea aperiam, saepe
+                    voluptates autem rem eaque et quis magnam beatae at? Debitis
+                    molestias maiores assumenda, impedit praesentium autem ut
+                    pariatur ea vero quibusdam dicta cupiditate quasi laborum,
+                    dolor temporibus possimus nemo dignissimos qui rerum.
+                    Dolores consectetur, quia nostrum aliquam vero natus error
+                    perspiciatis at iure soluta, voluptates praesentium quas
+                    fugiat, repudiandae et rem veniam officia. Sint sequi
+                    excepturi itaque incidunt dolore debitis iusto distinctio
+                    perferendis cumque illum doloremque repellat dignissimos,
+                    temporibus accusantium expedita rem eveniet at
+                    exercitationem? Perspiciatis temporibus tempora est delectus
+                    iste, repudiandae laudantium perferendis aperiam et,
+                    corrupti accusantium odit! Fuga ad in quo maiores explicabo
+                    quasi mollitia quaerat molestiae natus amet aut animi nemo
+                    suscipit incidunt nihil ex omnis esse ullam repellat nostrum
+                    illum reprehenderit, asperiores delectus obcaecati. Nisi
+                    aliquam, ea quis repellendus, ipsum doloremque fugit esse
+                    tempora asperiores nemo amet vero rem tenetur? Enim ducimus
+                    incidunt similique quam reprehenderit corrupti voluptate sit
+                    mollitia veniam, animi at iure quae numquam commodi eligendi
+                    ad eius culpa.
+                </p>
+            </div>
+            <script src="assets/sorting/script.js"></script>
+            <script src="assets/sorting/quicksort.js"></script>
+            <script src="assets/sorting/bubblesort.js"></script>
+            <script src="assets/sorting/insersionsort.js"></script>
+            <script src="assets/sorting/bogosort.js"></script>
+        </main>
+    </body>
+</html>
