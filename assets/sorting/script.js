@@ -107,7 +107,7 @@ function updateSwaps(n) {
     } else {
         swaps++;
     }
-    document.getElementById("swap").innerHTML = comparisons;
+    document.getElementById("swap").innerHTML = swaps;
 }
 async function stopwatch() {
     timerRunning = true;
