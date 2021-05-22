@@ -1,56 +1,45 @@
-:root{
-    --grid-colour:#3c3c3d;
+:root {
+    --grid-colour: #3c3c3d;
 }
 
-.table{
+.table {
     border-spacing: 0;
 }
-.grid{
-    
+.grid {
 }
 
-.node-row{
-
+.node-row {
 }
 
-.node{
-    
+.node {
     border: var(--grid-colour);
     border-style: solid;
     border-width: 1px;
-    
-    
+
     height: 1.5rem;
     width: 1.5rem;
-  
 }
 
-.empty{
-    
+.empty {
 }
-.target{
+.target {
     background-color: red;
-    animation: createBox .25s;
 }
-.start{
+.start {
     background-color: orange;
-    animation: createBox .25s;
 }
-.wall{
+.wall {
     background-color: white;
-    animation: createBox .25s;
+    animation: createBox 0.25s;
 }
 @keyframes createBox {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
-
-.node:hover
-{
-    
+.node:hover {
 }
