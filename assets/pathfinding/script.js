@@ -1,9 +1,47 @@
-var mouseDown = 0;
-var drawingMode = "";
-var startMoving = false;
-var startLoc;
-var targetMoving = false;
-var targetLoc;
+class Node {
+    constructor(row, col, type, total_rows, total_cols) {
+        this.row = row;
+        this.col = col;
+        this.type = type;
+        this.neighors = [];
+        this.total_rows = total_rows;
+        this.total_cols = total_cols;
+    }
+
+    getPos() {
+        return this.row, this.col;
+    }
+
+    is(type) {
+        return this.type == type;
+    }
+    set(newtype) {
+        this.type = newtype;
+    }
+
+    updateNeighbors(grid) {
+        this.neighors = [];
+
+        if (
+            this.row < this.total_rows - 1 &&
+            !grid[this.row + 1][this.col].is("wall")
+        ) {
+            this.neighors.push(grid[this.row + 1][this.col]);
+        }
+        if (this.row > 0 && !grid[this.row - 1][this.col].is("wall")) {
+            this.neighors.push(grid[this.row - 1][this.col]);
+        }
+        if (
+            this.col < this.total_cols - 1 &&
+            !grid[this.row][this.col + 1].is("wall")
+        ) {
+            this.neighors.push(grid[this.row][this.col + 1]);
+        }
+        if (this.col > 0 && !grid[this.row][this.col - 1].is("wall")) {
+            this.neighors.push(grid[this.row][this.col - 1]);
+        }
+    }
+}
 
 function createDivs() {
     var cols = Math.floor(window.innerWidth / 30);
@@ -42,16 +80,19 @@ function createDivs() {
         node.addEventListener("mouseenter", function () {
             if (mouseDown == 1) {
                 if (node.matches(".empty") && startMoving) {
+                    moved = true;
                     swapStart(node);
                 } else if (node.matches(".empty") && targetMoving) {
+                    moved = true;
                     swapTarget(node);
                 } else if (node.matches(`.${drawingMode}`)) swap(node);
             }
         });
         node.addEventListener("mouseup", function () {
-            if (node.matches(".start") || node.matches(".target")) {
+            if ((node.matches(".start") || node.matches(".target")) && moved) {
                 startMoving = false;
                 targetMoving = false;
+                moved = false;
             }
         });
         node.addEventListener("mousedown", function () {
@@ -78,8 +119,6 @@ function createDivs() {
         });
     });
 }
-createDivs();
-
 function swap(node) {
     if (node.matches(".empty")) {
         node.classList.replace("empty", "wall");
@@ -102,3 +141,57 @@ document.body.onmouseup = function () {
     mouseDown = 0;
     drawingMode = "";
 };
+function createNodes() {
+    var cols = Math.floor(window.innerWidth / 30);
+    var rows = Math.floor(window.innerHeight / 50);
+    var grid = new Array(rows);
+    for (var i = 0; i < rows; i++) {
+        var n = new Array(cols);
+        for (var j = 0; j < cols; j++) {
+            n[j] = new Node(
+                i,
+                j,
+                document.getElementById(`${j}-${i}`).classList[1],
+                rows,
+                cols
+            );
+        }
+        grid[i] = n;
+    }
+    for (var i = 0; i < rows; i++) {
+        for (var j = 0; j < cols; j++) {
+            grid[i][j].updateNeighbors(grid);
+        }
+    }
+    return grid;
+}
+function e(node1, node2) {
+    var r1,
+        c1 = node1.getPos();
+    var r2,
+        c2 = node2.getPos();
+    return Math.sqrt(Math.pow(r1 - r2, 2) + Math.pow(c1 - c2), 2);
+}
+function aStar(grid) {
+    var start;
+    var target;
+    var cameFrom = {};
+    grid.forEach((row) => {
+        row.forEach((n) => {
+            if (n.is("start")) {
+                start = n;
+            } else if (n.is("target")) {
+                target = n;
+            }
+        });
+    });
+}
+var mouseDown = 0;
+var drawingMode = "";
+var moved = false;
+var startMoving = false;
+var startLoc;
+var targetMoving = false;
+var targetLoc;
+
+createDivs();

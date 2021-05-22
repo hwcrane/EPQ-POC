@@ -32,6 +32,10 @@
     background-color: white;
     animation: createBox 0.25s;
 }
+.closed {
+    background-color: cadetblue;
+    animation: colourChange 1s;
+}
 @keyframes createBox {
     from {
         transform: scale(0);
@@ -41,5 +45,11 @@
     }
 }
 
-.node:hover {
+@keyframes colourChange {
+    from {
+        background-color: green;
+    }
+    to {
+        background-color: cadetblue;
+    }
 }
