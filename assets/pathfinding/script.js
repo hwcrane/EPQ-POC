@@ -1,3 +1,33 @@
+var mouseDown = 0;
+var drawingMode = "";
+var moved = false;
+var startMoving = false;
+var startLoc;
+var targetMoving = false;
+var targetLoc;
+
+class PriorityQueue {
+    constructor() {
+        this.list = [];
+    }
+
+    enqueue(node) {
+        for (var i; i < this.list.length; i++) {
+            if (node.f() < this.list[i].f()) {
+                this.list.slice(i, 0, node);
+                break;
+            }
+        }
+    }
+
+    dequeue() {
+        return this.list.pop();
+    }
+
+    getCurrent() {
+        return this.list[0];
+    }
+}
 class Node {
     constructor(row, col, type, total_rows, total_cols) {
         this.row = row;
@@ -6,6 +36,12 @@ class Node {
         this.neighors = [];
         this.total_rows = total_rows;
         this.total_cols = total_cols;
+        this.g;
+        this.h;
+    }
+
+    f() {
+        return this.g + this.h;
     }
 
     getPos() {
@@ -16,6 +52,9 @@ class Node {
         return this.type == type;
     }
     set(newtype) {
+        document
+            .getElementById(`${this.col}-${this.row}`)
+            .classList.replace(this.type, newtype);
         this.type = newtype;
     }
 
@@ -176,6 +215,8 @@ function aStar(grid) {
     var start;
     var target;
     var cameFrom = {};
+    var openList = [];
+    var closedList = [];
     grid.forEach((row) => {
         row.forEach((n) => {
             if (n.is("start")) {
@@ -185,13 +226,9 @@ function aStar(grid) {
             }
         });
     });
+    openList.push(closed);
 }
-var mouseDown = 0;
-var drawingMode = "";
-var moved = false;
-var startMoving = false;
-var startLoc;
-var targetMoving = false;
-var targetLoc;
-
+function startPathfinding() {
+    document.getElementById("grid").interactable = true;
+}
 createDivs();

@@ -1,5 +1,10 @@
 :root {
     --grid-colour: #3c3c3d;
+    --closed: #29bf12;
+    --open: #1c9dee;
+    --target: #e71d36;
+    --path: #7209b7;
+    --start: #cf8300;
 }
 
 .table {
@@ -13,7 +18,7 @@
 
 .node {
     border: var(--grid-colour);
-    border-style: solid;
+
     border-width: 1px;
 
     height: 1.5rem;
@@ -21,35 +26,65 @@
 }
 
 .empty {
+    border-style: solid;
 }
 .target {
-    background-color: red;
+    background-color: var(--target);
 }
 .start {
-    background-color: orange;
+    background-color: var(--start);
 }
 .wall {
     background-color: white;
-    animation: createBox 0.25s;
+    animation: createBox 0.5s;
+}
+.open {
+    background-color: var(--open);
+    animation: open 1s;
+    border-radius: 100%;
+    transform: scale(0.5);
 }
 .closed {
-    background-color: cadetblue;
-    animation: colourChange 1s;
+    background-color: var(--closed);
+    animation: close 5s;
+}
+.path {
+    background-color: var(--path);
 }
 @keyframes createBox {
+    from {
+        border-radius: 100%;
+        transform: scale(0);
+    }
+    90% {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+        border-radius: 0;
+    }
+}
+
+@keyframes close {
+    from {
+        background-color: var(--open);
+        transform: scale(0.5);
+        border-radius: 100%;
+    }
+    25% {
+        transform: scale(1);
+        border-radius: 0;
+    }
+    to {
+        background-color: var(--closed);
+    }
+}
+
+@keyframes open {
     from {
         transform: scale(0);
     }
     to {
-        transform: scale(1);
-    }
-}
-
-@keyframes colourChange {
-    from {
-        background-color: green;
-    }
-    to {
-        background-color: cadetblue;
+        transform: scale(0.5);
     }
 }
