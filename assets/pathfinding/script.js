@@ -12,20 +12,28 @@ class PriorityQueue {
     }
 
     enqueue(node) {
-        for (var i; i < this.list.length; i++) {
-            if (node.f() < this.list[i].f()) {
-                this.list.slice(i, 0, node);
-                break;
+        if (!this.list.length) {
+            this.list.push(node);
+        } else {
+            for (var i; i < this.list.length; i++) {
+                if (node.f() < this.list[i].f()) {
+                    this.list.slice(i, 0, node);
+                    break;
+                }
             }
         }
+    }
+
+    isEmpty() {
+        return this.list.length == 0;
     }
 
     dequeue() {
         return this.list.pop();
     }
 
-    getCurrent() {
-        return this.list[0];
+    contains(node) {
+        return this.list.includes(node);
     }
 }
 class Node {
@@ -36,8 +44,8 @@ class Node {
         this.neighors = [];
         this.total_rows = total_rows;
         this.total_cols = total_cols;
-        this.g;
-        this.h;
+        this.g = Infinity;
+        this.h = Infinity;
     }
 
     f() {
@@ -215,7 +223,7 @@ function aStar(grid) {
     var start;
     var target;
     var cameFrom = {};
-    var openList = [];
+    var openList = new PriorityQueue();
     var closedList = [];
     grid.forEach((row) => {
         row.forEach((n) => {
@@ -226,7 +234,32 @@ function aStar(grid) {
             }
         });
     });
-    openList.push(closed);
+    openList.enqueue(start);
+    start.h = e(start, target);
+    start.g = 0;
+    while (!openList.isEmpty()) {
+        current = openList.dequeue();
+        console.log(current);
+        if (current == target) {
+            //reconstruct path
+            return true;
+        }
+
+        current.neighors.forEach((neighor) => {
+            console.log(neighor);
+            var tempG = current.g + 1;
+
+            if (tempG < neighor.g) {
+                cameFrom[neighor] = current;
+                neighor.g = tempG;
+                neighor.h = e(neighor, target);
+                if (!openList.contains(neighor)) {
+                    openList.enqueue(neighor);
+                    neighor.set("open");
+                }
+            }
+        });
+    }
 }
 function startPathfinding() {
     document.getElementById("grid").interactable = true;
